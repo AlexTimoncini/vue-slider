@@ -72,28 +72,49 @@ createApp({
             ],
             activeIndex: 11,
             autoPlay: setInterval(this.nextSlide, 3000),
+            clepsydra: false,
+            stopped: false
         }
     },
     methods: {
         prevSlide(){
             this.activeIndex === 0 ? this.activeIndex = this.slides.length - 1 : this.activeIndex--
-            this.clearAutoPlay();
+            if (!this.stopped){
+                this.clearAutoPlay();
+                this.clepsydra = !this.clepsydra
+            }
         },
         nextSlide(){
             this.activeIndex === this.slides.length - 1 ? this.activeIndex = 0 : this.activeIndex++
-            this.clearAutoPlay();
+            if (!this.stopped){
+                this.clearAutoPlay();
+                this.clepsydra = !this.clepsydra
+            }
         },
         thumbSlide(thumbIndex){
             this.activeIndex = thumbIndex
-            this.clearAutoPlay();
+            if (!this.stopped){
+                this.clearAutoPlay();
+                this.clepsydra = !this.clepsydra
+            }
         },
         clearAutoPlay(){
-            clearInterval(this.autoPlay);
-            this.autoPlay = setInterval(this.nextSlide, 3000);
+            if (!this.stopped){
+                clearInterval(this.autoPlay);
+                this.autoPlay = setInterval(this.nextSlide, 3000);
+            }
         },
         pauseAutoPlay(){
             clearInterval(this.autoPlay);
-            console.log('STOP')
+        },
+        pauseAutoPlayToggle(){
+            if (!this.stopped){
+                this.pauseAutoPlay();
+                this.stopped = true;
+            } else {
+                this.clearAutoPlay();
+                this.stopped = false;
+            }
         }
     }
 }).mount('#app')

@@ -13,10 +13,10 @@
     <div id="app">
         <header class="ivy_header">
             <nav class="ivy_navbar"></nav>
-            <div class="ivy_carousel" @mouseover="pauseAutoPlay()" @mouseleave="clearAutoPlay">
+            <div class="ivy_carousel" @mouseover="pauseAutoPlay()" @mouseleave="clearAutoPlay()">
                 <div class="ivy_slide" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''">
                     <div v-if="index === activeIndex" >
-                        <img :src="slide.image" class="ivy_slide_img"></img>
+                        <img :src="slide.image" class="ivy_slide_img" draggable="false"></img>
                         <div class="ivy_album_info">
                             <h1 class="ivy_slide_title">{{ slide.name }}</h1>
                             <h2 class="ivy_slide_year">{{ slide.year }}</h2>
@@ -28,6 +28,13 @@
                 </button>
                 <button class="ivy_slide_btn ivy_next" @click="nextSlide()">
                     <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                <button @click="pauseAutoPlayToggle()" v-if="!stopped" class="ivy_stop_auto_play" :class="clepsydra ? 'ivy_turn' : ''">
+                    <i class="fa-solid fa-hourglass-start"></i>
+                </button>
+                <button @click="pauseAutoPlayToggle()" v-else class="ivy_stop_auto_play">
+                    <i class="fa-solid fa-hourglass-start"></i>
+                    <i class="fa-solid fa-slash"></i>
                 </button>
             </div>
             <div class="ivy_thumbnails">
