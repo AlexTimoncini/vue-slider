@@ -37,7 +37,7 @@
                     <i class="fa-solid fa-slash"></i>
                 </button>
             </div>
-            <div class="ivy_thumbnails">
+            <div class="ivy_thumbnails" @mouseover="pauseAutoPlay()" @mouseleave="clearAutoPlay()" >
                 <div class="ivy_thumbnail" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''" @click="thumbSlide(index)" >
                     <img :src="slide.image" :alt="slide.name" draggable="false">
                 </div>

@@ -72,7 +72,8 @@ createApp({
             ],
             activeIndex: 11,
             clepsydra: false,
-            stopped: false
+            stopped: false,
+            autoPlay: '',
         }
     },
     methods: {
@@ -109,6 +110,6 @@ createApp({
         }
     },
     created(){
-        let autoPlay = setInterval(this.nextSlide, 3000)
+        this.autoPlay = setInterval(this.nextSlide, 3000)
     }
 }).mount('#app')
