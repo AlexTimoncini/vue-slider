@@ -71,7 +71,6 @@ createApp({
                 }
             ],
             activeIndex: 11,
-            autoPlay: setInterval(this.nextSlide, 3000),
             clepsydra: false,
             stopped: false
         }
@@ -79,29 +78,21 @@ createApp({
     methods: {
         prevSlide(){
             this.activeIndex === 0 ? this.activeIndex = this.slides.length - 1 : this.activeIndex--
-            if (!this.stopped){
-                this.clearAutoPlay();
-                this.clepsydra = !this.clepsydra
-            }
+            this.clearAutoPlay()
         },
         nextSlide(){
             this.activeIndex === this.slides.length - 1 ? this.activeIndex = 0 : this.activeIndex++
-            if (!this.stopped){
-                this.clearAutoPlay();
-                this.clepsydra = !this.clepsydra
-            }
+            this.clearAutoPlay()
         },
         thumbSlide(thumbIndex){
             this.activeIndex = thumbIndex
-            if (!this.stopped){
-                this.clearAutoPlay();
-                this.clepsydra = !this.clepsydra
-            }
+            this.clearAutoPlay()
         },
         clearAutoPlay(){
             if (!this.stopped){
                 clearInterval(this.autoPlay);
                 this.autoPlay = setInterval(this.nextSlide, 3000);
+                this.clepsydra = !this.clepsydra
             }
         },
         pauseAutoPlay(){
@@ -116,5 +107,8 @@ createApp({
                 this.stopped = false;
             }
         }
+    },
+    created(){
+        let autoPlay = setInterval(this.nextSlide, 3000)
     }
 }).mount('#app')
