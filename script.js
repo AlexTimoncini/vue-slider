@@ -82,7 +82,8 @@ createApp({
                     name: 'Music To Be Murdered By - Side B',
                     year: 2020
                 }
-            ]
+            ],
+            activeIndex: 11,
         }
     }
 }).mount('#app')

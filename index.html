@@ -9,7 +9,22 @@
 </head>
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <div id="app">
+        <header class="ivy_header">
+            <nav class="ivy_navbar"></nav>
+            <section class="ivy_carousel">
+                <div class="ivy_slide" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''">
+                    <div v-if="index === activeIndex" >
+                        <img :src="slide.image" class="ivy_slide_img"></img>
+                        <div class="ivy_album_info">
+                            <h1 class="ivy_slide_title">{{ slide.name }}</h1>
+                            <h2 class="ivy_slide_year">{{ slide.year }}</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

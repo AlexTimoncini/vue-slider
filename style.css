@@ -5,3 +5,46 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
+
+.ivy_navbar{
+    height: 130px;
+    background-color: rgb(116, 116, 116);
+}
+
+section.ivy_carousel{
+    height: 630px;
+    background-color: rgb(38, 38, 38);
+    position: relative;
+}
+
+.ivy_slide{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.33s ease-in-out;
+}
+
+.ivy_slide.ivy_active{
+    opacity: 1;
+}
+
+.ivy_slide_img{
+    width: 100%;
+    display: block;
+}
+
+.ivy_album_info{
+    position: absolute;
+    bottom: 20px;
+    right: 105%;
+    color: rgb(116, 116, 116);
+    font-size: 1rem;
+    text-align: right;
+    width: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
