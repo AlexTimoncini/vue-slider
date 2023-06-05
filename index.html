@@ -13,7 +13,7 @@
     <div id="app">
         <header class="ivy_header">
             <nav class="ivy_navbar"></nav>
-            <div class="ivy_carousel">
+            <div class="ivy_carousel" @mouseover="pauseAutoPlay()" @mouseleave="clearAutoPlay">
                 <div class="ivy_slide" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''">
                     <div v-if="index === activeIndex" >
                         <img :src="slide.image" class="ivy_slide_img"></img>

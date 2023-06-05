@@ -71,17 +71,29 @@ createApp({
                 }
             ],
             activeIndex: 11,
+            autoPlay: setInterval(this.nextSlide, 3000),
         }
     },
     methods: {
         prevSlide(){
             this.activeIndex === 0 ? this.activeIndex = this.slides.length - 1 : this.activeIndex--
+            this.clearAutoPlay();
         },
         nextSlide(){
             this.activeIndex === this.slides.length - 1 ? this.activeIndex = 0 : this.activeIndex++
+            this.clearAutoPlay();
         },
         thumbSlide(thumbIndex){
             this.activeIndex = thumbIndex
+            this.clearAutoPlay();
+        },
+        clearAutoPlay(){
+            clearInterval(this.autoPlay);
+            this.autoPlay = setInterval(this.nextSlide, 3000);
+        },
+        pauseAutoPlay(){
+            clearInterval(this.autoPlay);
+            console.log('STOP')
         }
     }
 }).mount('#app')
