@@ -48,3 +48,21 @@ section.ivy_carousel{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.ivy_slide_btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    color:rgb(116, 116, 116);
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.ivy_prev{
+    left: 20px;
+}
+
+.ivy_next{
+    right: 20px;
+}
