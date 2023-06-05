@@ -11,7 +11,7 @@ box-sizing: border-box;
     background-color: rgb(116, 116, 116);
 }
 
-section.ivy_carousel{
+.ivy_carousel{
     height: 630px;
     background-color: rgb(38, 38, 38);
     position: relative;
@@ -65,4 +65,27 @@ section.ivy_carousel{
 
 .ivy_next{
     right: 20px;
+}
+
+.ivy_thumbnails{
+    display: flex;
+    background-color: rgb(38, 38, 38);
+}
+
+.ivy_thumbnail{
+    width: 100%;
+    opacity: 0.5;
+    transition: all 0.33s ease-in-out;
+    cursor: pointer;
+}
+
+.ivy_thumbnail.ivy_active{
+    opacity: 1;
+}
+
+.ivy_thumbnail img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

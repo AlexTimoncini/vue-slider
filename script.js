@@ -79,6 +79,9 @@ createApp({
         },
         nextSlide(){
             this.activeIndex === this.slides.length - 1 ? this.activeIndex = 0 : this.activeIndex++
+        },
+        thumbSlide(index){
+
         }
     }
 }).mount('#app')

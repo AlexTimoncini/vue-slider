@@ -13,7 +13,7 @@
     <div id="app">
         <header class="ivy_header">
             <nav class="ivy_navbar"></nav>
-            <section class="ivy_carousel">
+            <div class="ivy_carousel">
                 <div class="ivy_slide" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''">
                     <div v-if="index === activeIndex" >
                         <img :src="slide.image" class="ivy_slide_img"></img>
@@ -29,7 +29,12 @@
                 <button class="ivy_slide_btn ivy_next" @click="nextSlide()">
                     <i class="fa-solid fa-chevron-right"></i>
                 </button>
-            </section>
+            </div>
+            <div class="ivy_thumbnails">
+                <div class="ivy_thumbnail" v-for="(slide, index) in slides" :class="index === activeIndex ? 'ivy_active' : ''">
+                    <img :src="slide.image" :alt="slide.name">
+                </div>
+            </div>
         </header>
     </div>
     <script src="script.js"></script>
